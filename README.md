@@ -6,7 +6,7 @@ The code in this repository is adapted from the code published by Dennis Ippel i
 The goal of the *masking-model-mobile-app* is to run image processing models on the live video captured by an iPhone camera. This project was started with the ultimate goal of being able to run the masking model (found [here](https://github.com/talemhealthanalytics/MaskRCNN)) on live video captured on the user's iPhone. 
 
 ## Technical Overview
-![App flowchart](./flowchart.png?raw=true "App Flowchart")
+![App flowchart](https://github.com/talemhealthanalytics/masking-model-mobile-app/blob/main/Flowchart.png?raw=true "App Flowchart")
 This app uses Swift and Apple CoreML tools to run a user-defined machine learning model on device. By using the **vision** library, the app is able to interface the video collected on the device, running the model in real-time. 
 
 Two models are used in this code, the first is used for object detection and the second is used for segmentation. The object detection is done using a *YOLOv3Int8LUT* model, and the second one should *ideally* be our masking model. **This is the only remaining piece of the puzzle that would complete this project, and the remaining blocker is highlighted below in the blockers section**. For the time being, a *DeepLabV3Int8Image* model is used for segmentation instead. As a result, the app segments entire cars rather than just the damaged region of interest.
